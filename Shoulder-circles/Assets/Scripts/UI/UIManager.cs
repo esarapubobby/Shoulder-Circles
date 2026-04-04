@@ -44,6 +44,14 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) && hudPanel.activeSelf) ShowSettings();
+        switch (GameStateManager.Instance.CurrentState)
+        {
+            case GameStateManager.GameState.Lose:
+            ShowGameOver();
+            break;
+        }
+        
+        
     }
 
     public void UpdateScore(float score)
